@@ -1,14 +1,18 @@
 import { Client } from "pg";
 import express from "express"
+import dotenv from "dotenv"
+
+dotenv.config();
 
 const app=express()
 app.use(express.json())
+
 
 const con=new Client({
     host:"localhost",
     user:"postgres",
     port:5432,
-    password:"samarjeet88",
+    password:process.env.DB_PASSWORD,
     database:'crud'
 })
 
